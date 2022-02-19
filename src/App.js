@@ -1,24 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {Routes, Route} from 'react-router-dom';
 import Home from './components/routes/Home';
 import Detail from './components/routes/Detail';
 import Review from './components/routes/Review';
 
 function App() {
   return (
-  <Router>
-    <Switch>
-      <Route path="/movie/:id"> 
-        <Detail />
-      </Route>
-      <Route path="/review/:id">
-        <Review /> 
-      </Route>
-      <Route exact path="/">
-        <Home />
-      </Route>
-    </Switch> 
-  </Router>
+  <Routes>
+      <Route path="/movie/:id" exact element={<Detail/>}/> 
+      <Route path="/review/:id" exact element={<Review/>}/>
+      <Route exact path="/" exact element={<Home />}/>
+  </Routes>
   ); //<Router> : 누군가 이미 만들어놓은 컴포넌트임.
 } 
 //<Switch>는 route를 찾아 렌더링 해줌.
