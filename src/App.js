@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from './components/routes/Home';
 import Detail from './components/routes/Detail';
+import Review from './components/routes/Review';
 
 function App() {
   return (
@@ -9,6 +10,9 @@ function App() {
     <Switch>
       <Route path="/movie/:id"> 
         <Detail />
+      </Route>
+      <Route path="/review/:id">
+        <Review /> 
       </Route>
       <Route exact path="/">
         <Home />

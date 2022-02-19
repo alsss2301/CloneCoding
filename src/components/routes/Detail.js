@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'; // url에 있는 변수id값을 받아옴
+import { Link, useParams } from 'react-router-dom'; // url에 있는 변수id값을 받아옴
 import styles from './Detail.module.css';
 
 function Detail() {
@@ -28,6 +28,7 @@ function Detail() {
                     <h2>{movie.year}</h2>
                     <h3>평점: {movie.rating}<br></br>좋아요 수: {movie.like_count}</h3>
                     <p>{movie.description_intro}</p>
+                    <h4><Link to={`/review/${id}`}>리뷰</Link></h4>
                 </div>
             )}
             
