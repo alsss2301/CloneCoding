@@ -6,26 +6,18 @@ import styles from './Home.module.css'; //같은 폴더 안에 있을때는 ./
 function Home() {
     const [loading, setLoading] = useState(true);
     const [movies,setMovies] = useState([]);
-    const [error, setError] = useState(null);
   
-    useEffect(() => {
       const getMovies = async () => {
-        try{
-          setError(null);
           const response = await axios.get(
             'https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year'
           );
           setMovies(response.data.data.movies);
-        } catch (e) {
-          setError(e);
-        }
         setLoading(false);
       };
 
-      getMovies();
-    }, []);
-
-    if (error) return <div>에러가 발생했습니다</div>;
+      useEffect(()=>{
+        getMovies();
+      },[]);
 
     return (
       <div className={styles.container}> 
@@ -33,7 +25,7 @@ function Home() {
           <h1>Loading...</h1>
         ) : (
           <div className={styles.movies}>
-            {movies && movies.map((movie) => (
+            {movies.map((movie) => (
               <Movie 
                 key={movie.id}
                 id={movie.id}
