@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import Movie from '../Movie';
 import styles from './Home.module.css'; //같은 폴더 안에 있을때는 ./
 
@@ -6,7 +7,7 @@ function Home() {
     const [loading, setLoading] = useState(true);
     const [movies,setMovies] = useState([]);
     const getMovies = async () => {
-      const response = await fetch(
+      const response = await axios.get(
         `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year`
       );
       const json = await response.json();
