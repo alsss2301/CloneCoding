@@ -5,7 +5,7 @@ import styles from './Home.module.css'; //같은 폴더 안에 있을때는 ./
 
 function Home() {
     const [loading, setLoading] = useState(true);
-    const [movies,setMovies] = useState([]);
+    const [movies,setMovies] = useState([]); //null에는 map프로토타입이 없다. 그래서 map쓰려면 초기값을 []로 한다.
     const [error, setError] = useState(null);
   
     useEffect(() => {
