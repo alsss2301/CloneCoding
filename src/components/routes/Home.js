@@ -15,7 +15,7 @@ function Home() {
           const response = await axios.get(
             'https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year'
           );
-          setMovies(response.data.data.movies);
+          setMovies(response.data.data.movies); //response.data 까지는 axios에서 만들어주는 객체이고, 그 이후는 또 안에 객체가 있는지 확인해보고 코드짜야함.
         } catch (e) {
           setError(e);
         }
