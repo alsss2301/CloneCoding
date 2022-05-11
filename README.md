@@ -1,2 +1,4 @@
-# movie-app-clone-coding
+# clone-coding
 노마드코더 - 리액트 JS로 영화 웹사이트 만들기
+
+인프런 - 쇼핑몰 만들기
